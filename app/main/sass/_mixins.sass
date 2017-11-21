@@ -1,3 +1,3 @@
-
-@function em($pixels, $mainFS) 
-	@return #{$pixels/$mainFS}em
+@import "vars"
+@function em($pixels,  $context: $mainFS) 
+	@return #{$pixels/ $context}em
