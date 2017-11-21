@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	cleanCSS = require('gulp-clean-css'),
+	fs = require('fs'),
 	rename = require('gulp-rename'),
 	del = require('del'),
 	imagemin = require('gulp-imagemin'),
@@ -33,10 +34,10 @@ gulp.task('scripts', function() {
 gulp.task('pug', function() {
 	return gulp.src('app/pug/pages/*.pug')
 	.pipe(pug({
-		// locals : {
-		// 	nav: JSON.parse(readFileSync('app/data/navigation.json', 'utf8')),
-		// 	content: JSON.parse(readFileSync('app/data/content.json', 'utf8')),
-		// },
+		locals : {
+			nav: JSON.parse(fs.readFileSync('app/data/navigation.json', 'utf8')),
+			content: JSON.parse(fs.readFileSync('app/data/content.json', 'utf8')),
+		},
 		pretty: true
 	}))
 	.pipe(gulp.dest('app'))
