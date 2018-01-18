@@ -1,4 +1,3 @@
-include ../mixins
 block variables
 
 doctype html
@@ -29,11 +28,9 @@ html(lang='ru')
 	body(class=pageClass)
 		.wrapper
 			include ../modules/header
-			h1.name #{title}
-			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia aperiam id natus iste maiores, suscipit veritatis voluptas optio eligendi, obcaecati accusamus tenetur doloribus rem beatae velit illum itaque vero dolor!
 				.content
 					block content
-				include ../modules/footer
+			include ../modules/footer
 
 	link(rel='stylesheet', href='main/css/main.min.css')
 	script(src='main/js/scripts.min.js')

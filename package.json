@@ -26,5 +26,6 @@
     "gulp-util": "^3.0.8",
     "node-bourbon": "^4.2.8",
     "vinyl-ftp": "^0.6.0"
-  }
+  },
+  "dependencies": {}
 }

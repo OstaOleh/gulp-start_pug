@@ -19,8 +19,7 @@ var gulp = require('gulp'),
 // Scripts
 gulp.task('scripts', function() {
 	return gulp.src([
-		'app/main/libs/jquery/dist/jquery.min.js',
-		'app/main/libs/owl.carousel/dist/owl.carousel.min.js',
+		// 'node_modules/jquery/dist/jquery.min.js',
 		'app/main/js/common.js', // last line
 		])
 	.pipe(concat('scripts.min.js'))
@@ -57,10 +56,14 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('sass', function() {
-	return gulp.src('app/main/sass/**/*.sass')
+	return gulp.src([
+		'app/main/sass/**/*.sass'
+		])
 	.pipe(sass({
-		includePaths: bourbon.includePaths
-	}).on("error", notify.onError()))
+		includePaths: [bourbon.includePaths,
+			// ['node_modules/owl.carousel/dist/assets'],
+		]
+		}).on("error", notify.onError()))
 	.pipe(rename({
 		suffix: '.min',
 		prefix: ''
